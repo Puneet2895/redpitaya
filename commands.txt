@@ -41,17 +41,12 @@ Usage: acquire  size <dec>
        size     Number of samples to acquire [0 - 16384].
        dec      Decimation [1,8,64,1024,8192,65536] (default=1).
 
-
-
-
-
 Data save on SD:
 
 redpitaya> acquire 1024 8 > /mnt/my_remote_file
 
-
-
-
 Data retrieve from SD with WinSCP.
 Default IP address: 192.168.1.100
 Default Netmask: 255.255.255.0
+
+NB: Commands are similar for SSH and Serial console like acquire and generate work well on both.
