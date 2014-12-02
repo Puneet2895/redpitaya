@@ -23,3 +23,10 @@ Input voltage range: 0 to +3.5 V
 ○ Number of channels: 4
 ○ Nominal sampling rate: 100 ksps (H)
 ○ ADC resolution 12 bits
+
+
+
+
+
+Default full scale voltage: +-0.6 V (+-6 V with 10x probe attenuation). 
+Full scale reconfigurable by means of discrete components replacement (+-15V). 
