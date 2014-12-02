@@ -50,3 +50,8 @@ Default IP address: 192.168.1.100
 Default Netmask: 255.255.255.0
 
 NB: Commands are similar for SSH and Serial console like acquire and generate work well on both.
+
+
+
+                            HOW TO USE AS GAIN/PHASE/IMPEDANCE ANALYSER
+                            http://blog.redpitaya.com/?p=501
