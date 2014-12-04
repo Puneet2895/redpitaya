@@ -53,5 +53,5 @@ NB: Commands are similar for SSH and Serial console like acquire and generate wo
 
 
 
-                            HOW TO USE AS GAIN/PHASE/IMPEDANCE ANALYSER
-                            http://blog.redpitaya.com/?p=501
+HOW TO USE AS GAIN/PHASE/IMPEDANCE ANALYSER
+http://blog.redpitaya.com/?p=501
