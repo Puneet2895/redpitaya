@@ -2,8 +2,8 @@
 
 #dumps 100 files
 
-a=0
-while [ "$a" -lt 100 ]  
+a=1
+while [ "$a" -lt 101 ]  
 do 
  acquire 16384 1 > /mnt/"tmp$a".csv
  a=`expr $a + 1`
@@ -11,10 +11,10 @@ done
 
 ##############################################################################
 
-#copies those 100 files
+#copies those 100 files, when you are on host machine
 
-a=0
-while [ "$a" -lt 100 ]  
+a=1
+while [ "$a" -lt 101 ]  
 do 
   pscp -pw root root@192.168.1.100:/mnt/"tmp$a".csv /tmp/
  a=`expr $a + 1`
