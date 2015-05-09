@@ -1,5 +1,6 @@
 ##############################################################################
-
+start=`date +%s`
+echo $start
 #dumps 100 files
 
 a=1
@@ -9,6 +10,10 @@ do
  a=`expr $a + 1`
 done
 
+end=`date +%s`
+echo $end
+runtime=$((end-start))
+echo $runtime
 ##############################################################################
 
 #copies those 100 files, when you are on host machine
