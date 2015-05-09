@@ -6,14 +6,14 @@ echo $start
 a=1
 while [ "$a" -lt 101 ]  
 do 
- acquire 16384 8 > /mnt/usb/Omkar/"tmp_1_$a".csv
+ touch /mnt/usb/Omkar/"tmp_1_$a".csv
  a=`expr $a + 1`
 done
 
 b=1
 while [ "$b" -lt 101 ]  
 do 
- acquire 16384 8 > /mnt/usb/Omkar/"tmp_2_$b".csv
+ touch /mnt/usb/Omkar/"tmp_2_$b".csv
  b=`expr $b + 1`
 done
 
