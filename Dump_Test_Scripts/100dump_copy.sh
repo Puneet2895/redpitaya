@@ -1,22 +1,24 @@
 ##############################################################################
 start=`date +%s`
-echo $start
+#echo $start
 #dumps 100 files
 
 a=1
 while [ "$a" -lt 101 ]  
 do 
- acquire 16384 8 > /mnt/"tmp$a".csv
+ acquire 16384 8 > /mnt/storage/Plug/"BGN1_$a".csv
  a=`expr $a + 1`
 done
 
 end=`date +%s`
-echo $end
+#echo $end
 runtime=$((end-start))
-echo $runtime
+echo 'Dump'+$runtime
 ##############################################################################
 
 #copies those 100 files, when you are on host machine
+
+scp -r /mnt/storage/Plug manojgulati@192.168.10.6:Databin > /dev/null
 
 #a=1
 #while [ "$a" -lt 101 ]  
