@@ -20,7 +20,7 @@ echo 'Dump'+$runtime
 
 #copies those 100 files, when you are on host machine
 
-scp -r /mnt/storage/Plug manojgulati@192.168.10.6:Databin > /dev/null
+scp -r /mnt/storage/Plug manojgulati@192.168.11.2:Databin > /dev/null
 rm -rf /mnt/storage/Plug
 mkdir /mnt/storage/Plug
 
