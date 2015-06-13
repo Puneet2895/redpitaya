@@ -8,12 +8,13 @@ ts=`date +%s`
 
 a=1
 #echo "init"
-while [ "$a" -lt 1001 ]  
+while [ "$a" -lt 201 ]  
 do 
 # acquire 16384 64 > /mnt/storage/Plug/"$start_$a".csv
  #echo "Main"
- touch "$start.$a".csv
- scp "$start.$a".csv  manojgulati@192.168.11.2:Databin/>/dev/NULL
+ #touch "$start.$a".csv
+ acquire 16384 64 > /mnt/storage/Plug/"$start.$a".csv
+ scp /mnt/storage/Plug/"$start.$a".csv manojgulati@192.168.11.2:Databin/>/dev/NULL
  a=`expr $a + 1`
  start=`date +%s`
  if [ $start -gt $ts ]
