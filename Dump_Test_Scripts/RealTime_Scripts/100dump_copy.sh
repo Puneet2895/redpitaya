@@ -8,7 +8,7 @@ start=`date +%s`
 a=1
 while [ "$a" -lt 101 ]  
 do 
- acquire 16384 64 > /mnt/storage/Plug/"BGN1_$a".csv
+ acquire 16384 8 > /mnt/storage/Plug/"BGN1_$a".csv
  a=`expr $a + 1`
 done
 
