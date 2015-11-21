@@ -1,22 +1,40 @@
-# Script to push EMI traces to cloud storage from redpitaya local memory.
+# Script to log continous stream of real time data specifically for fusion with smart meter data
 # Manoj Gulati
 # Energy Group
 # IIIT-Delhi 
-# DOM: 19/11/2015
+# DOM: 19th Nov, 2015
 ##############################################################################
-
 start=`date +%s`
-Path="/mnt/storage/Plug/"
+ts=`date +%s`
 
-b=$ ls $Path|wc -l
-echo $b
-c="$(ls $Path| head -n 2)"
+#echo "first echo: $ts, $start"
+#dumps 100 files
 
-for i in ${c[@]}; do
-	echo $Path$i
-	scp $Path$i manojgulati@192.168.1.3:Databin
-	rm -rf $Path$i
+# # # # Check decimation factor before running this script # # # # 
+
+a=1
+#echo "init"
+while [ "$a" -lt 20 ]  
+do 
+ acquire 16384 8 > /mnt/storage/Plug/"$start.$a".csv
+ #scp /mnt/storage/Plug/"$start.$a".csv manojgulati@192.168.11.2:Databin/>/dev/NULL
+ a=`expr $a + 1`
+ start=`date +%s`
+ if [ [$start -gt $ts] ]
+ then
+ 	a=1 && echo $start && ts=`date +%s`
+ fi
 done
 
-b=$ ls $Path|wc -l
-echo $b
+#end=`date +%s`
+#echo $end
+#runtime=$((end-start))
+#echo 'Dump'+$runtime
+##############################################################################
+
+#copies those 100 files, when you are on host machine
+
+#scp -r /mnt/storage/Plug manojgulati@192.168.11.2:Databin > /dev/null
+#rm -rf /mnt/storage/Plug
+#mkdir /mnt/storage/Plug
+################################################################################
