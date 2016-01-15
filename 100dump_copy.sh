@@ -3,7 +3,7 @@ start=`date +%s`
 echo $start
 #dumps 100 files
 
-a=1
+a=11
 while [ "$a" -lt 101 ]  
 do 
  acquire 16384 8 > /mnt/"tmp$a".csv
