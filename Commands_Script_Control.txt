@@ -1,0 +1,13 @@
+-- Commands to Run Scripts in Background
+
+When using nohup and you put the task in the background, the background operator (&) will give you the PID at the command prompt. If your plan is to manually manage the process, you can save that PID and use it later to kill the process if needed, via kill PID or kill -9 PID (if you need to force kill). Alternatively, you can find the PID later on by ps -ef | grep "command name" and locate the PID from there. Note that nohup keyword/command itself does not appear in the ps output for the command in question.
+
+nohup my_command > my.log 2>&1 &
+echo $! > save_pid.txt
+
+This will run my_command saving all output into my.log (in a script, $! represents the PID of the last process executed). The 2 is the file descriptor for standard error (stderr) and 2>&1 tells the shell to route standard error output to the standard output (file descriptor 1). It requires &1 so that the shell knows it's a file descriptor in that context instead of just a file named 1. The 2>&1 is needed to capture any error messages that normally are written to standard error into our my.log file (which is coming from standard output). See I/O Redirection for more details on handling I/O redirection with the shell.
+
+If the command sends output on a regular basis, you can check the output occasionally with tail my.log, or if you want to follow it "live" you can use tail -f my.log. Finally, if you need to kill the process, you can do it via:
+
+kill -9 `cat save_pid.txt`
+rm save_pid.txt
